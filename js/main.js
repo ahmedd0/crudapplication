@@ -62,6 +62,8 @@ addBtn.onclick = function () {
   var isEmpty = CRUD.addProduct();
   if (!isEmpty) {
     CRUD.displayProducts();
+  }else{
+    alert("PLEASE ENTER ALL PRODUCT INFORMATION")
   }
   clearInputs();
 };
