@@ -26,11 +26,24 @@ body {
 .form {
     box-shadow: -8px 0px 0px #6c63ff;
 }
-
+h1{
+    color: #1e212d;
+}
 .form-container {
     height: 100vh;
-    background: linear-gradient(90deg, #1e212d 40%, transparent 40%);
     color: white;
+}
+
+@media (min-width:992px) {
+    h1 {
+        color: white;
+    }
+
+    .form-container {
+        height: 100vh;
+        background: linear-gradient(90deg, #1e212d 40%, transparent 40%);
+        color: white;
+    }
 }
 
 .form-container hr {
