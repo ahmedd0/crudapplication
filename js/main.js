@@ -26,7 +26,7 @@ var CRUD = {
     ) {
       stock.push(product);
       return false;
-    }else{
+    } else {
       return true;
     }
   },
@@ -45,7 +45,7 @@ var CRUD = {
         stock[i].price +
         "</td><td>" +
         stock[i].desc +
-        "</td> <td><i class='fas fa-edit text-success fa-1x mr-3 edit'></i><i class='fas fa-trash text-danger remove'></i></td></tr>";
+        "</td> <td class='text-center'><i class='fas fa-edit text-success fa-1x mr-3 edit'></i><i class='fas fa-trash text-danger remove'></i></td></tr>";
     }
     tBody.innerHTML = container;
   },
@@ -60,7 +60,7 @@ function clearInputs() {
 }
 addBtn.onclick = function () {
   var isEmpty = CRUD.addProduct();
-  if(!isEmpty){
+  if (!isEmpty) {
     CRUD.displayProducts();
   }
   clearInputs();

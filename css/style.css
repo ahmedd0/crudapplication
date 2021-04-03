@@ -1,3 +1,4 @@
+/* GLOBAL */
 html {
     scroll-behavior: smooth;
 }
@@ -11,11 +12,14 @@ body {
     background-color: #eee;
 }
 
-/* GLOBAL */
 .form-control:focus,
 .btn:focus {
     box-shadow: none !important;
     background-color: #1e212dc7 !important;
+}
+
+textarea {
+    max-height: 50px;
 }
 
 ::placeholder {
@@ -26,16 +30,18 @@ body {
 .form {
     box-shadow: -8px 0px 0px #6c63ff;
 }
-h1{
-    color: #1e212d;
+
+h1 {
+    color: #1e212d !important;
 }
+
 .form-container {
-    height: 100vh;
+    min-height: 100vh;
     color: white;
 }
 
 @media (min-width:992px) {
-    h1 {
+     h1 {
         color: white;
     }
 
@@ -88,7 +94,7 @@ h1{
     width: 40px;
     margin: auto;
     left: 50%;
-    bottom: 8px;
+    bottom: 3px;
     transform: translate(-50%, -5px);
 }
 
