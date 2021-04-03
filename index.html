@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<head>
+    <!-- START WEBSITE TITLE -->
+    <title>CRUD APPLICATION</title>
+    <!-- END WEBSITE TITLE -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ============ START STYLING FILES ==================== -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- ============ END STYLING FILES ======================-->
+</head>
+
+<body>
+    <section class="form-container py-4">
+        <div class="container">
+            <!-- START FORM -->
+            <h1>CRUD SYSTEM</h1>
+
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form main-bg text-white mt-3 p-3">
+                        <div class="form-group w-md-50">
+                            <label for="productName">Product Name:</label>
+                            <input class="form-control" type="text" id="productName" placeholder="Apple ipad pro">
+                        </div>
+                        <div class="form-group w-md-50">
+                            <label for="productCategory">Product Category:</label>
+                            <input class="form-control" type="text" id="productCategory" placeholder="tablet">
+                        </div>
+                        <div class="form-group w-md-50">
+                            <label for="productPrice">Product Price:</label>
+                            <input class="form-control" type="text" id="productPrice" placeholder="9000">
+                        </div>
+                        <div class="form-group w-md-50">
+                            <label for="productDesc">Product Description:</label>
+                            <textarea class="form-control" id="productDesc"></textarea>
+                        </div>
+                        <div class="form-group w-md-50">
+                            <button class="btn btn-danger text-uppercase" id="add">add product</button>
+                        </div>
+                    </div>
+                    <!-- END FORM -->
+                </div>
+                <div class="col-md-6 d-none d-lg-block">
+                    <div class="h-100 d-flex">
+                        <img src="imgs/undraw_online_ad_re_ol62.svg" class="w-100" alt="svg image laptop">
+                    </div>
+                </div>
+            </div>
+
+            <!-- START TO SECTION ICON -->
+            <a href="#table"
+                class="to-table position-absolute d-flex justify-content-center align-items-center mt-3 bg-success rounded-circle">
+                <i class="fas fa-chevron-down text-white "></i></a>
+            <!-- END TO SECTION ICON -->
+        </div>
+    </section>
+    <section class="table-container mt-5 py-5" id="table">
+        <div class="container">
+
+            <!-- START TABLE -->
+            <div class="my-table bg-white table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead class="main-bg text-white">
+                        <th class="text-capitalize">id</th>
+                        <th class="text-capitalize">product name</th>
+                        <th class="text-capitalize">product category</th>
+                        <th class="text-capitalize">product price</th>
+                        <th class="text-capitalize">product Description</th>
+                        <th></th>
+
+
+                    </thead>
+                    <tbody id="tbody">
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- END TABLE -->
+        </div>
+    </section>
+
+
+
+    <!-- ==================================   PLUGINS   =================================== -->
+
+    <!-- JAVASCRIPT PLUGINS -->
+    <script src="js/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <!-- JAVASCRIPT PLUGINS -->
+
+</body>
+
+</html>

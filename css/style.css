@@ -1,0 +1,135 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.main-bg {
+    background-color: #3f3d56;
+}
+
+body {
+    height: 5000px;
+    background-color: #eee;
+}
+
+/* GLOBAL */
+.form-control:focus,
+.btn:focus {
+    box-shadow: none !important;
+    background-color: #1e212dc7 !important;
+}
+
+::placeholder {
+    color: rgba(238, 238, 238, 0.39) !important;
+}
+
+/* END GLOBAL */
+.form {
+    box-shadow: -8px 0px 0px #6c63ff;
+}
+
+.form-container {
+    height: 100vh;
+    background: linear-gradient(90deg, #1e212d 40%, transparent 40%);
+    color: white;
+}
+
+.form-container hr {
+    position: relative;
+    border-color: white;
+}
+
+.form-container hr::before {
+    content: "";
+    position: absolute;
+    left: -8px;
+    bottom: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #6c63ff;
+    z-index: 5555;
+    transform: translateY(50%);
+}
+
+.form-container hr::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #6c63ff;
+    z-index: 5555;
+    transform: translateY(50%);
+}
+
+.form input {
+    border: none !important;
+    background: #1e212dc7;
+    border-bottom: 1px solid rgb(204, 193, 193) !important;
+    border-radius: 0 !important;
+    color: white !important;
+}
+
+.to-table {
+    height: 40px;
+    width: 40px;
+    margin: auto;
+    left: 50%;
+    bottom: 8px;
+    transform: translate(-50%, -5px);
+}
+
+.to-table i {
+    animation: bounce 2s ease infinite;
+    animation-fill-mode: both;
+}
+
+tr i {
+    cursor: pointer;
+}
+
+tr:last-child {
+    opacity: 0;
+    animation: opa 1s;
+    animation-fill-mode: forwards;
+}
+
+
+
+
+/* START KEY FRAMES */
+@keyframes opa {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(-5px);
+    }
+
+    25% {
+        transform: translateY(5px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+
+    }
+
+    75% {
+        transform: translateY(5px);
+
+    }
+
+    100% {
+        transform: translateY(-5px);
+    }
+}
+
+/* END KEY FRAMES */
