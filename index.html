@@ -4,6 +4,9 @@
     <!-- START WEBSITE TITLE -->
     <title>CRUD APPLICATION</title>
     <!-- END WEBSITE TITLE -->
+    <meta name="description" content="crud system application for products">
+    <meta name="keywords" content="crud-system, application, web-development , html,css,js">
+    <meta name="author" content="Ahmed Abdelhady">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- ============ START STYLING FILES ==================== -->
     <link rel="stylesheet" href="css/all.min.css">
@@ -24,19 +27,21 @@
                     <div class="form main-bg text-white mt-3 p-3">
                         <div class="form-group w-md-50">
                             <label for="productName">Product Name:</label>
-                            <input class="form-control" type="text" id="productName" placeholder="Apple ipad pro">
+                            <input class="form-control" name="name" type="text" id="productName"
+                                placeholder="Apple ipad pro">
                         </div>
                         <div class="form-group w-md-50">
                             <label for="productCategory">Product Category:</label>
-                            <input class="form-control" type="text" id="productCategory" placeholder="tablet">
+                            <input class="form-control" name="category" type="text" id="productCategory"
+                                placeholder="tablet">
                         </div>
                         <div class="form-group w-md-50">
                             <label for="productPrice">Product Price:</label>
-                            <input class="form-control" type="text" id="productPrice" placeholder="9000">
+                            <input class="form-control" name="price" type="text" id="productPrice" placeholder="9000">
                         </div>
                         <div class="form-group w-md-50">
                             <label for="productDesc">Product Description:</label>
-                            <textarea class="form-control" id="productDesc"></textarea>
+                            <textarea class="form-control" name="description" id="productDesc"></textarea>
                         </div>
                         <div class="form-group w-md-50">
                             <button class="btn btn-danger text-uppercase" id="add">add product</button>
@@ -80,7 +85,7 @@
                 </table>
             </div>
             <!-- END TABLE -->
-            
+
         </div>
     </section>
 
