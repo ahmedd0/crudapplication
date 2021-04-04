@@ -10,7 +10,7 @@ var stock, lastId;
 if (localStorage.getItem("lastId") == null) {
   lastId = 0;
 } else {
-  lastId = localStorage.getItem("lastId");
+  lastId = Number(localStorage.getItem("lastId"));
 }
 
 if (localStorage.getItem("products") == null) {
@@ -24,7 +24,7 @@ var CRUD = {
   //======= ADD PRODUCT TO ARRAY LIST ======
   addProduct: function () {
     var product = {
-      id: ++lastId,
+      id: lastId + 1,
       name: productName.value,
       cate: productCategory.value,
       price: productPrice.value,
@@ -37,6 +37,7 @@ var CRUD = {
       product.desc != ""
     ) {
       stock.push(product);
+      lastId++;
       localStorage.setItem("lastId", lastId.toString());
       return false;
     } else {
@@ -81,6 +82,7 @@ addBtn.onclick = function () {
   var isEmpty = CRUD.addProduct();
   if (!isEmpty) {
     CRUD.displayProducts();
+
     localStorage.setItem("products", JSON.stringify(stock));
   } else {
     alert("PLEASE ENTER ALL PRODUCT INFORMATION");
