@@ -81,9 +81,9 @@ addBtn.onclick = function () {
   var isEmpty = CRUD.addProduct();
   if (!isEmpty) {
     CRUD.displayProducts();
+    localStorage.setItem("products", JSON.stringify(stock));
   } else {
     alert("PLEASE ENTER ALL PRODUCT INFORMATION");
   }
   clearInputs();
-  localStorage.setItem("products", JSON.stringify(stock));
 };
