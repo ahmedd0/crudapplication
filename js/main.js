@@ -7,6 +7,7 @@ var productDesc = document.getElementById("productDesc");
 var addBtn = document.getElementById("add");
 // ======= GLOBAL VARIABLE  ======
 var stock, lastId;
+
 if (localStorage.getItem("lastId") == null) {
   lastId = 0;
 } else {
@@ -18,7 +19,6 @@ if (localStorage.getItem("products") == null) {
 } else {
   stock = JSON.parse(localStorage.getItem("products"));
 }
-console.log(stock);
 // ======== CRUD OPERATIONS ================
 var CRUD = {
   //======= ADD PRODUCT TO ARRAY LIST ======
@@ -48,7 +48,7 @@ var CRUD = {
   // ======== RETRIEVE ALL PRODUCT IN TABLE =========
   displayProducts: function () {
     var container = "";
-    for (let i = 0; i < stock.length; i++) {
+    for (var i = 0; i < stock.length; i++) {
       container += `<tr><td>
         ${stock[i].id}
         </td>
@@ -69,6 +69,28 @@ var CRUD = {
     localStorage.setItem("products", JSON.stringify(stock));
     CRUD.displayProducts();
   },
+  search: function (ele) {
+    console.log(ele.value);
+    var container = "";
+    for (var i = 0; i < stock.length; i++) {
+      if (stock[i].name.toLowerCase().includes(ele.value.toLowerCase())) {
+        container += `<tr><td>
+        ${stock[i].id}
+        </td>
+          <td>${stock[i].name}</td>
+          <td>${stock[i].cate}</td>
+          <td>${stock[i].price}</td>
+          <td>${stock[i].desc}</td>
+          <td class='text-center'>
+            <i class='fas fa-edit text-success fa-1x mr-3 edit'></i>
+            <i onclick='CRUD.deleteProduct(${i})' class='fas fa-trash text-danger remove'></i>
+          </td>
+        </tr>`;
+      }
+    }
+
+    tBody.innerHTML = container;
+  },
 };
 CRUD.displayProducts();
 // =========== CLEAR INPUTS ======
@@ -78,6 +100,7 @@ function clearInputs() {
   productPrice.value = "";
   productDesc.value = "";
 }
+// =========================== EVENTS =============================
 addBtn.onclick = function () {
   var isEmpty = CRUD.addProduct();
   if (!isEmpty) {

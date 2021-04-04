@@ -27,21 +27,21 @@
                     <div class="form main-bg text-white mt-3 p-3">
                         <div class="form-group w-md-50">
                             <label for="productName">Product Name:</label>
-                            <input class="form-control" name="name" type="text" id="productName"
+                            <input autocomplete="off" class="form-control" name="name" type="text" id="productName"
                                 placeholder="Apple ipad pro">
                         </div>
                         <div class="form-group w-md-50">
                             <label for="productCategory">Product Category:</label>
-                            <input class="form-control" name="category" type="text" id="productCategory"
-                                placeholder="tablet">
+                            <input class="form-control" autocomplete="off" name="category" type="text"
+                                id="productCategory" placeholder="tablet">
                         </div>
                         <div class="form-group w-md-50">
                             <label for="productPrice">Product Price:</label>
-                            <input class="form-control" name="price" type="text" id="productPrice" placeholder="9000">
+                            <input class="form-control" name="price" type="text" id="productPrice" placeholder="9000" autocomplete="off">
                         </div>
                         <div class="form-group w-md-50">
                             <label for="productDesc">Product Description:</label>
-                            <textarea class="form-control" name="description" id="productDesc"></textarea>
+                            <textarea class="form-control" name="description" id="productDesc" autocomplete="off"></textarea>
                         </div>
                         <div class="form-group w-md-50">
                             <button class="btn btn-danger text-uppercase" id="add">add product</button>
@@ -65,9 +65,13 @@
     </section>
     <section class="table-container mt-5 py-5" id="table">
         <div class="container">
+            <h1 class="text-center mb-">ALL PRODUCTS</h1>
+            <div class="search form-group w-50  m-auto">
+                <input onkeyup="CRUD.search(this)" type="text" class="form-control" placeholder="search ">
 
+            </div>
             <!-- START TABLE -->
-            <div class="my-table bg-white table-responsive">
+            <div class="my-table bg-white table-responsive mt-5">
                 <table class="table table-hover table-bordered mb-0">
                     <thead class="main-bg text-white">
                         <th class="text-capitalize">id</th>

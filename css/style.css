@@ -12,8 +12,8 @@ body {
     background-color: #eee;
 }
 
-.form-control:focus,
-.btn:focus {
+.form-container .form-control:focus,
+.form-container .btn:focus {
     box-shadow: none !important;
     background-color: #1e212dc7 !important;
 }
@@ -22,7 +22,7 @@ textarea {
     max-height: 50px;
 }
 
-::placeholder {
+.form ::placeholder {
     color: rgba(238, 238, 238, 0.39) !important;
 }
 
@@ -41,7 +41,7 @@ h1 {
 }
 
 @media (min-width:992px) {
-     h1 {
+    h1 {
         color: white;
     }
 
