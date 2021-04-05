@@ -5,6 +5,8 @@ var productPrice = document.getElementById("productPrice");
 var tBody = document.getElementById("tbody");
 var productDesc = document.getElementById("productDesc");
 var addBtn = document.getElementById("add");
+var searchBtn = document.getElementById("searchBtn");
+var removeBtn = document.getElementsByClassName("remove");
 // ======= GLOBAL VARIABLE  ======
 var stock, lastId;
 
@@ -57,7 +59,7 @@ var CRUD = {
           <td>${stock[i].price}</td>
           <td>${stock[i].desc}</td>
           <td class='text-center'>
-            <i class='fas fa-edit text-success fa-1x mr-3 edit'></i>
+            <i onclick='CRUD.edit(${i})' class='fas fa-edit text-success fa-1x mr-3 edit'></i>
             <i onclick='CRUD.deleteProduct(${i})' class='fas fa-trash text-danger remove'></i>
           </td>
         </tr>`;
@@ -82,8 +84,8 @@ var CRUD = {
           <td>${stock[i].price}</td>
           <td>${stock[i].desc}</td>
           <td class='text-center'>
-            <i class='fas fa-edit text-success fa-1x mr-3 edit'></i>
-            <i onclick='CRUD.deleteProduct(${i})' class='fas fa-trash text-danger remove'></i>
+          <i onclick='CRUD.edit(${i})' class='fas fa-edit text-success fa-1x mr-3 edit'></i>
+          <i onclick='CRUD.deleteProduct(${i})' class='fas fa-trash text-danger remove'></i>
           </td>
         </tr>`;
       }
@@ -91,7 +93,40 @@ var CRUD = {
 
     tBody.innerHTML = container;
   },
+  edit: function (i) {
+    var container = "";
+    console.log("yes");
+    container += `<tr><td>
+        ${stock[i].id}
+        </td>
+          <td><input class='editRow' type='text' id='newName' value='${stock[i].name}'></td>
+          <td><input class='editRow' type='text' id='newCate' value='${stock[i].cate}'></td>
+          <td><input class='editRow' type='text' id='newPrice' value='${stock[i].price}'></td>
+          <td><input class='editRow' type='text' id='newDesc' value='${stock[i].desc}'></td>
+          <td class='text-center'>
+          <i onclick='CRUD.saveEdit(${i})' class='fas fa-check text-success fa-1x mr-3 edit'></i>
+          <i onclick='CRUD.deleteProduct(${i})' class='fas fa-trash text-danger remove'></i>
+          </td>
+        </tr>`;
+    tBody.innerHTML = container;
+  },
+  saveEdit: function (rowIndex) {
+    console.log("editted");
+    var newValues = [];
+    var editInputs = document.getElementsByClassName("editRow");
+    for (let i = 0; i < editInputs.length; i++) {
+      newValues.push(editInputs[i].value);
+    }
+    stock[rowIndex].name = newValues[0];
+    stock[rowIndex].cate = newValues[1];
+    stock[rowIndex].price = newValues[2];
+    stock[rowIndex].desc = newValues[3];
+    localStorage.setItem("products", JSON.stringify(stock));
+    CRUD.displayProducts();
+    console.log(newValues);
+  },
 };
+
 CRUD.displayProducts();
 // =========== CLEAR INPUTS ======
 function clearInputs() {
@@ -112,3 +147,13 @@ addBtn.onclick = function () {
   }
   clearInputs();
 };
+
+searchBtn.onkeyup = function () {
+  CRUD.search(this);
+};
+// ======== REMOVE PRODUCT EVENT
+// for (var i = 0; i < removeBtn.length; i++) {
+//   removeBtn[i].addEventListener("click", function () {
+//     CRUD.deleteProduct(this);
+//   });
+// }
