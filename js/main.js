@@ -144,6 +144,9 @@ addBtn.onclick = function () {
     alert("PLEASE ENTER ALL PRODUCT INFORMATION");
   }
   clearInputs();
+  hideErrMessage();
+  hideSuccessMessage();
+  checkDisabled();
 };
 
 searchBtn.onkeyup = function () {
@@ -205,5 +208,22 @@ function checkDisabled() {
   } else {
     addBtn.setAttribute("disabled", "true");
   }
+}
+function hideErrMessage() {
+  document.getElementById("nameAlert").classList.add("d-none");
+  document.getElementById("cateAlert").classList.add("d-none");
+  document.getElementById("priceAlert").classList.add("d-none");
+  document.getElementById("descAlert").classList.add("d-none");
+
+  productName.classList.remove("is-invalid");
+  productCategory.classList.remove("is-invalid");
+  productPrice.classList.remove("is-invalid");
+  productDesc.classList.remove("is-invalid");
+}
+function hideSuccessMessage() {
+  productName.classList.remove("is-valid");
+  productCategory.classList.remove("is-valid");
+  productPrice.classList.remove("is-valid");
+  productDesc.classList.remove("is-valid");
 }
 checkDisabled();
