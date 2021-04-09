@@ -159,10 +159,10 @@ searchBtn.onkeyup = function () {
 //   });
 // }
 // ================== VALIDATION ==================================
-var namRegex = /^[a-zA-Z0-9\- ]{3,}$/;
-var cateRegex = /^[a-zA-Z0-9\- ]{2,}$/;
+var namRegex = /^[a-zA-Z0-9\- ا-ي]{3,}$/;
+var cateRegex = /^[a-zA-Z0-9\- ا-ي]{2,}$/;
 var priceRegex = /^[0-9]{1,}$/;
-var descRegex = /^[A-Za-z0-9\- ]{3,100}$/;
+var descRegex = /^[A-Za-z0-9\- ا-ي]{3,100}$/;
 productName.onkeyup = function () {
   isvalid(this, "nameAlert", namRegex);
   checkDisabled();
