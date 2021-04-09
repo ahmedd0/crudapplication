@@ -95,7 +95,6 @@ var CRUD = {
   },
   edit: function (i) {
     var container = "";
-    console.log("yes");
     container += `<tr><td>
         ${stock[i].id}
         </td>
@@ -123,7 +122,6 @@ var CRUD = {
     stock[rowIndex].desc = newValues[3];
     localStorage.setItem("products", JSON.stringify(stock));
     CRUD.displayProducts();
-    console.log(newValues);
   },
 };
 
@@ -157,3 +155,55 @@ searchBtn.onkeyup = function () {
 //     CRUD.deleteProduct(this);
 //   });
 // }
+// ================== VALIDATION ==================================
+var namRegex = /^[a-zA-Z0-9\- ]{3,}$/;
+var cateRegex = /^[a-zA-Z0-9\- ]{2,}$/;
+var priceRegex = /^[0-9]{1,}$/;
+var descRegex = /^[A-Za-z0-9\- ]{3,100}$/;
+productName.onkeyup = function () {
+  isvalid(this, "nameAlert", namRegex);
+  checkDisabled();
+};
+productCategory.onkeyup = function () {
+  isvalid(this, "cateAlert", cateRegex);
+  checkDisabled();
+};
+productPrice.onkeyup = function () {
+  isvalid(this, "priceAlert", priceRegex);
+  checkDisabled();
+};
+productDesc.onkeyup = function () {
+  isvalid(this, "descAlert", descRegex);
+  checkDisabled();
+};
+function isvalid(input, alertDiv, regex) {
+  var alert = document.getElementById(alertDiv);
+  var isValid = regex.test(input.value);
+  if (isValid) {
+    alert.classList.add("d-none");
+    input.classList.add("is-valid");
+    input.classList.remove("is-invalid");
+  } else {
+    alert.classList.remove("d-none");
+    input.classList.remove("is-valid");
+    input.classList.add("is-invalid");
+  }
+}
+function checkDisabled() {
+  if (
+    productName &&
+    productDesc &&
+    productPrice &&
+    productCategory &&
+    namRegex.test(productName.value) &&
+    cateRegex.test(productCategory.value) &&
+    priceRegex.test(productPrice.value) &&
+    descRegex.test(productDesc.value)
+  ) {
+    addBtn.setAttribute("disabled", "off");
+    addBtn.removeAttribute("disabled");
+  } else {
+    addBtn.setAttribute("disabled", "true");
+  }
+}
+checkDisabled();

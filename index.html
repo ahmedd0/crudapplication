@@ -29,21 +29,34 @@
                             <label for="productName">Product Name:</label>
                             <input autocomplete="off" class="form-control" name="name" type="text" id="productName"
                                 placeholder="Apple ipad pro">
+
+                            <p class="alert alert-danger py-1 mt-2 d-none" id="nameAlert"> Name can not be less than 3
+                                char or contained
+                                symobls</p>
                         </div>
                         <div class="form-group w-md-50">
                             <label for="productCategory">Product Category:</label>
                             <input class="form-control" autocomplete="off" name="category" type="text"
                                 id="productCategory" placeholder="tablet">
+                            <p class="alert alert-danger py-1 mt-2 d-none" id="cateAlert"> Category Name can not be less
+                                than 3
+                                char or contained
+                                symobls</p>
                         </div>
                         <div class="form-group w-md-50">
                             <label for="productPrice">Product Price:</label>
-                            <input class="form-control" name="price" type="text" id="productPrice" placeholder="9000"
+                            <input class="form-control" name="price" type="number" id="productPrice" placeholder="9000"
                                 autocomplete="off">
+                            <p class="alert alert-danger py-1 mt-2 d-none" id="priceAlert"> Price must be a Number
+                            </p>
                         </div>
                         <div class="form-group w-md-50">
                             <label for="productDesc">Product Description:</label>
                             <textarea class="form-control" name="description" id="productDesc"
                                 autocomplete="off"></textarea>
+                            <p class="alert alert-danger py-1 mt-2 d-none" id="descAlert"> description cann't have
+                                symbols & must be from 3 to 100 char
+                            </p>
                         </div>
                         <div class="form-group w-md-50">
                             <button class="btn btn-danger text-uppercase" id="add">add product</button>
