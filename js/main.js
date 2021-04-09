@@ -103,8 +103,8 @@ var CRUD = {
           <td><input class='editRow' type='text' id='newPrice' value='${stock[i].price}'></td>
           <td><input class='editRow' type='text' id='newDesc' value='${stock[i].desc}'></td>
           <td class='text-center'>
-          <i onclick='CRUD.saveEdit(${i})' class='fas fa-check text-success fa-1x mr-3 edit'></i>
-          <i onclick='CRUD.deleteProduct(${i})' class='fas fa-trash text-danger remove'></i>
+          <button   onclick='CRUD.saveEdit(${i})' class='fas fa-check text-success fa-1x mr-3 edit border-0'></button>
+          <button onclick='CRUD.deleteProduct(${i})' class='fas fa-trash text-danger remove border-0'></button>
           </td>
         </tr>`;
     tBody.innerHTML = container;
