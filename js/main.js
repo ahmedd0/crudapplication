@@ -32,11 +32,13 @@ var CRUD = {
       price: productPrice.value,
       desc: productDesc.value,
     };
+    var isValid = isDataValid();
     if (
       product.name != "" &&
       product.cate != "" &&
       product.price != "" &&
-      product.desc != ""
+      product.desc != "" &&
+      isValid
     ) {
       stock.push(product);
       lastId++;
@@ -110,7 +112,6 @@ var CRUD = {
     tBody.innerHTML = container;
   },
   saveEdit: function (rowIndex) {
-    console.log("editted");
     var newValues = [];
     var editInputs = document.getElementsByClassName("editRow");
     for (let i = 0; i < editInputs.length; i++) {
@@ -120,8 +121,12 @@ var CRUD = {
     stock[rowIndex].cate = newValues[1];
     stock[rowIndex].price = newValues[2];
     stock[rowIndex].desc = newValues[3];
-    localStorage.setItem("products", JSON.stringify(stock));
-    CRUD.displayProducts();
+    if (isvalid) {
+      localStorage.setItem("products", JSON.stringify(stock));
+      CRUD.displayProducts();
+    } else {
+      alert("invalid data");
+    }
   },
 };
 
@@ -141,12 +146,12 @@ addBtn.onclick = function () {
 
     localStorage.setItem("products", JSON.stringify(stock));
   } else {
-    alert("PLEASE ENTER ALL PRODUCT INFORMATION");
+    alert("invalid data");
   }
   clearInputs();
   hideErrMessage();
   hideSuccessMessage();
-  checkDisabled();
+  isDataValid();
 };
 
 searchBtn.onkeyup = function () {
@@ -165,19 +170,19 @@ var priceRegex = /^[0-9]{1,}$/;
 var descRegex = /^[A-Za-z0-9\- ا-ي]{3,100}$/;
 productName.onkeyup = function () {
   isvalid(this, "nameAlert", namRegex);
-  checkDisabled();
+  isDataValid();
 };
 productCategory.onkeyup = function () {
   isvalid(this, "cateAlert", cateRegex);
-  checkDisabled();
+  isDataValid();
 };
 productPrice.onkeyup = function () {
   isvalid(this, "priceAlert", priceRegex);
-  checkDisabled();
+  isDataValid();
 };
 productDesc.onkeyup = function () {
   isvalid(this, "descAlert", descRegex);
-  checkDisabled();
+  isDataValid();
 };
 function isvalid(input, alertDiv, regex) {
   var alert = document.getElementById(alertDiv);
@@ -192,7 +197,7 @@ function isvalid(input, alertDiv, regex) {
     input.classList.add("is-invalid");
   }
 }
-function checkDisabled() {
+function isDataValid() {
   if (
     productName &&
     productDesc &&
@@ -205,8 +210,10 @@ function checkDisabled() {
   ) {
     addBtn.setAttribute("disabled", "off");
     addBtn.removeAttribute("disabled");
+    return true;
   } else {
     addBtn.setAttribute("disabled", "true");
+    return false;
   }
 }
 function hideErrMessage() {
@@ -226,4 +233,4 @@ function hideSuccessMessage() {
   productPrice.classList.remove("is-valid");
   productDesc.classList.remove("is-valid");
 }
-checkDisabled();
+isDataValid();
