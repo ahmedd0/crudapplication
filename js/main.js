@@ -121,12 +121,8 @@ var CRUD = {
     stock[rowIndex].cate = newValues[1];
     stock[rowIndex].price = newValues[2];
     stock[rowIndex].desc = newValues[3];
-    if (isvalid) {
-      localStorage.setItem("products", JSON.stringify(stock));
-      CRUD.displayProducts();
-    } else {
-      alert("invalid data");
-    }
+    localStorage.setItem("products", JSON.stringify(stock));
+    CRUD.displayProducts();
   },
 };
 
